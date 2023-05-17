@@ -1,19 +1,6 @@
 class Solution {
 public:
-    // void dfs(vector<int>& nums,vector<vector<int>> &ans,vector<int> &path,int sum,int index){
-    //     if(path.size()==3 && sum==0){
-    //         ans.emplace_back(path);
-    //         return;
-    //     }else if(path.size()==3){
-    //         return;
-    //     }
-    //     for(int i=index;i<nums.size);i++){
-    //         path.emplace_back(nums[i]);
-    //         dfs(nums,ans,path,sum+nums[i],i+1);
-    //         path.pop_back();
-    //     }
-    //     return;
-    // }
+ 
 
 
     void solve(vector<int>& nums, int target,int index ,vector<int>&path,vector<vector<int>>& ans){
@@ -62,9 +49,7 @@ public:
            
         }
         return ans;
-        // vector<int> path;
-        // dfs(nums,ans,path,0,0);
-        // return ans;
+
 
 
 
