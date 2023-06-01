@@ -3,7 +3,6 @@ public:
     int maxProfit(vector<int>& prices) {
         int ans=0;
         int n=prices.size();
-        int i=0;
         int j=0;
         int buyPrice=INT_MAX;
         while(j<n){
