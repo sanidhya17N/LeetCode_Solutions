@@ -4,11 +4,16 @@ public:
         int ans=0;
         int n=prices.size();
         int i=0;
-        for(int k=1;k<n;k++){
-            ans=max(ans,prices[k]-prices[i]);
-            if(prices[k]<prices[i]){
-                i=k;
+        int j=0;
+        int buyPrice=INT_MAX;
+        while(j<n){
+            if(prices[j]<buyPrice){
+                buyPrice=prices[j];
+                
             }
+
+            ans=max(ans, prices[j]-buyPrice);
+            j++;
         }
         return ans;
     }
