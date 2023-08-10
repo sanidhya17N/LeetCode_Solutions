@@ -22,11 +22,32 @@ public:
         return;
     }
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
-        int target=image[sr][sc];
          int n=image.size();
         int m=image[0].size();
-        vector<vector<int>> visited(n,vector<int>(m,0));
-        dfs(sr,sc,color,target,image,visited);
-        return image;       
+        int oldColor=image[sr][sc];
+        vector<vector<int>> vis(n,vector<int>(m,0));
+        queue<pair<int,int>> q;
+        q.push({sr,sc});
+        while(!q.empty()){
+            int row=q.front().first, col=q.front().second;
+            q.pop();
+            vis[row][col]=1;
+            image[row][col]=color;
+            if(row-1>=0 && image[row-1][col]==oldColor && !vis[row-1][col]){
+                q.push({row-1,col});
+            }
+            if(row+1<n && image[row+1][col]==oldColor && !vis[row+1][col]){
+                q.push({row+1,col});
+            }
+            if(col-1>=0 && image[row][col-1]==oldColor && !vis[row][col-1]){
+                q.push({row,col-1});
+            }
+            if(col+1<m && image[row][col+1]==oldColor && !vis[row][col+1]){
+                q.push({row,col+1});
+            }
+            
+        }
+        
+        return image;      
     }
 };
